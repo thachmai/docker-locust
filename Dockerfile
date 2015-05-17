@@ -5,11 +5,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y build-es
     apt-get clean && \
     easy_install locustio pyzmq
 
-ADD run.sh /usr/local/bin/run.sh
-RUN chmod 755 /usr/local/bin/run.sh
-
 EXPOSE 8089 5557 5558
 VOLUME /data/test
 WORKDIR /data/test
 
-ENTRYPOINT ["/usr/local/bin/run.sh"]
+ENTRYPOINT ["/usr/local/bin/locust"]
